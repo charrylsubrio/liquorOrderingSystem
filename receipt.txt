@@ -1,0 +1,7 @@
+Liquor Ordering System Receipt
+--------------------------------
+Liquor Name: Gin
+Quantity: 2
+Total Amount: $0.00
+--------------------------------
+Thank you for your order!
