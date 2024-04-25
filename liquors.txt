@@ -1,4 +1,4 @@
-Whiskey50 10
+Whiskey 50 10
 
 Tequila 35 15
 
