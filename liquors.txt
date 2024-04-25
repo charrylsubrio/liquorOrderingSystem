@@ -1,0 +1,13 @@
+Whiskey50 10
+
+Tequila 35 15
+
+Vodka 40 8
+
+Rum 25 20
+
+Gin 42 5
+
+Wine 30 12
+
+Beer 20 30
