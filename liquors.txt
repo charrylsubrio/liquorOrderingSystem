@@ -1,13 +1,6 @@
-Whiskey 50 10
-
-Tequila 35 15
-
-Vodka 40 8
-
-Rum 25 20
-
-Gin 42 5
-
-Wine 30 12
-
-Beer 20 30
+Redhorse 50 96
+Sanmiguel 45 80
+Tanduay 250 50
+Donpapa 800 30
+Goldlabel 2500 20
+Jimbeam 1200 40

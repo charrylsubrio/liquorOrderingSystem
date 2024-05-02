@@ -43,31 +43,43 @@ void export_receipt(char *liquor_name, int quantity, float total_amount);
 int main() {
     load_data();  // Load data from files on startup
 
-    int choice;
-    while (1) {
-        printf("\nLiquor Ordering System\n");
-        printf("1. Create Account\n");
-        printf("2. Login\n");
-        printf("3. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
+	int choice, i, valid_input;
+	do {
+		printf("\nLiquor Ordering System\n");
+		printf("1. Create Account\n");
+		printf("2. Login\n");
+		printf("3. Exit\n");
+		printf("Enter your choice: ");
+//        scanf("%d", &choice);
 
-        switch (choice) {
-            case 1:
-                create_account();
-                break;
-            case 2:
-                login();
-                break;
-            case 3:
-                save_data();  // Save data before exiting
-                exit(0);
-            default:
-                printf("Invalid choice!\n");
-        }
-    }
+		if (scanf("%d", &choice) != 1) {
+			system("cls");
+			printf("INVALID INPUT. PLEASE ENTER A NUMBER.\n");
+			while (getchar() != '\n');
+		} else if (choice <=0 || choice >= 4) {
+			system("cls");
+			printf("INVALID CHOICE. PLEASE TRY AGAIN.\n");
+			while (getchar() != '\n');
+		} else {
+			valid_input = 1;
+		} //LOMARDA
 
-    return 0;
+		switch (choice) {
+			case 1:
+				create_account();
+				break;
+			case 2:
+				login();
+				break;
+			case 3:
+				save_data();  // Save data before exiting
+				exit(0);
+//            default:
+//                printf("Invalid choice!\n");
+		}
+	} while (!valid_input || choice !=3);
+
+	return 0;
 }
 
 // Function to check if username is valid (alphanumeric)
@@ -222,7 +234,20 @@ void load_data() {
   }
 
   // Read liquor data (example format: name,price,stock)
-  while (fscanf(liquor_file, "%s %d %d", liquors[num_liquors].name, &liquors[num_liquors].price, &liquors[num_liquors].stock) != EOF) {
+  char line[MAX_LIQUOR_NAME + 10]; // Maximum length of a line in the liquor file
+  while (fgets(line, sizeof(line), liquor_file) != NULL) {
+    char *token = strtok(line, ",");
+    if (token != NULL) {
+      strcpy(liquors[num_liquors].name, token); // Copy liquor name
+    }
+    token = strtok(NULL, ",");
+    if (token != NULL) {
+      liquors[num_liquors].price = atoi(token); // Convert price string to integer
+    }
+    token = strtok(NULL, ",");
+    if (token != NULL) {
+      liquors[num_liquors].stock = atoi(token); // Convert stock string to integer
+    }
     num_liquors++; // Increment liquor count after successful read
     if (num_liquors >= MAX_LIQUOR) {
       break; // Reached maximum number of liquors
@@ -274,12 +299,13 @@ int strcmp_nocase(const char *str1, const char *str2) {
 
 void display_liquors() {
   printf("\nLiquor List:\n");
-  printf("  Name\t\t\tPrice\tStock\n");
-  printf("-------\t\t\t-------\t-------\n");
+  printf("Name\t\t\tPrice\tStock\n"); // Adjusted tab widths
+  printf("-----------------------------------------\n"); // Adjusted separator
 
   // Loop through all liquors
   for (int i = 0; i < num_liquors; i++) {
-    printf("  %-20s\t%d\t%d\n", liquors[i].name, liquors[i].price, liquors[i].stock);
+    // Use "%d" for integer formatting without padding zeros
+    printf("%-25s\t%d\t%d\n", liquors[i].name, liquors[i].price, liquors[i].stock); // Adjusted tab widths and alignment
   }
 
   printf("\n");
@@ -315,7 +341,7 @@ void order_liquor() {
 
   // Simulate order processing (update stock, display order confirmation)
   liquors[liquor_index].stock -= quantity;
-  printf("Order successful! You have ordered %d %s for a total of %.2f.\n", quantity, liquors[liquor_index].name, total_amount);
+  printf("Order successful! You have ordered %d %s for a total of $%.2f.\n", quantity, liquors[liquor_index].name, total_amount);
 
   // Export order details to a receipt file
   export_receipt(liquor_name, quantity, total_amount);
@@ -336,7 +362,7 @@ void export_receipt(char *liquor_name, int quantity, float total_amount) {
   fprintf(receipt_file, "--------------------------------\n");
   fprintf(receipt_file, "Liquor Name: %s\n", liquor_name);
   fprintf(receipt_file, "Quantity: %d\n", quantity);
-  fprintf(receipt_file, "Total Amount: %.2f\n", total_amount);
+  fprintf(receipt_file, "Total Amount: $%.2f\n", total_amount);
   fprintf(receipt_file, "--------------------------------\n");
   fprintf(receipt_file, "Thank you for your order!\n");
 

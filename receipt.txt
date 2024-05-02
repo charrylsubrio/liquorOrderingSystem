@@ -1,7 +1,7 @@
 Liquor Ordering System Receipt
 --------------------------------
-Liquor Name: Gin
-Quantity: 2
-Total Amount: $0.00
+Liquor Name: redhorse
+Quantity: 1
+Total Amount: 50.00
 --------------------------------
 Thank you for your order!

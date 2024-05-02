@@ -16,7 +16,7 @@ struct User {
 };
 
 struct Liquor {
-    char name[MAX_LIQUOR_NAME];
+    char name[MAX_LIQUOR_NAME + 1];
     int price;
     int stock;
 };
@@ -273,13 +273,13 @@ int strcmp_nocase(const char *str1, const char *str2) {
 }
 
 void display_liquors() {
-  printf("\nLiquor List:\n");
-  printf("  Name\t\t\tPrice\tStock\n");
-  printf("-------\t\t\t-------\t-------\n");
+  printf("\nLiquor List:\n\n");
+  printf("  Name\t\tPrice\tStock\n");
+  printf("-------\t\t-------\t-------\n");
 
   // Loop through all liquors
   for (int i = 0; i < num_liquors; i++) {
-    printf("  %-20s\t%d\t%d\n", liquors[i].name, liquors[i].price, liquors[i].stock);
+    printf("%-30s\t%d\t%d\n", liquors[i].name, liquors[i].price, liquors[i].stock);
   }
 
   printf("\n");
@@ -315,7 +315,7 @@ void order_liquor() {
 
   // Simulate order processing (update stock, display order confirmation)
   liquors[liquor_index].stock -= quantity;
-  printf("Order successful! You have ordered %d %s for a total of %.2f.\n", quantity, liquors[liquor_index].name, total_amount);
+  printf("Order successful! You have ordered %d %s for a total of $%.2f.\n", quantity, liquors[liquor_index].name, total_amount);
 
   // Export order details to a receipt file
   export_receipt(liquor_name, quantity, total_amount);
@@ -336,7 +336,7 @@ void export_receipt(char *liquor_name, int quantity, float total_amount) {
   fprintf(receipt_file, "--------------------------------\n");
   fprintf(receipt_file, "Liquor Name: %s\n", liquor_name);
   fprintf(receipt_file, "Quantity: %d\n", quantity);
-  fprintf(receipt_file, "Total Amount: %.2f\n", total_amount);
+  fprintf(receipt_file, "Total Amount: $%.2f\n", total_amount);
   fprintf(receipt_file, "--------------------------------\n");
   fprintf(receipt_file, "Thank you for your order!\n");
 
