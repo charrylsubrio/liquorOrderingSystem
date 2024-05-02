@@ -1,6 +1,1 @@
-Redhorse 50 96
-Sanmiguel 45 80
-Tanduay 250 50
-Donpapa 800 30
-Goldlabel 2500 20
-Jimbeam 1200 40
+Red_Horse_330ml 50 90
