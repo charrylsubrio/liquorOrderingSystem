@@ -1,0 +1,10 @@
+Tanduay_Rhum_Dark_750ml 125 0
+GSM_Blue_Light_Gin_750ml 130 50
+Absolut_Blue_Vodka_750ml 655 30
+Red_Horse_Stallion_330ml 50 90
+Don_Papa_Baroko_Rum_700ml 975 10
+Tanduay_Ice_Alcomix_330ml 50 90
+Emperador_Brandy_Red_750ml 195 40
+San_Miguel_Pale_Pilsen_330ml 60 80
+Ginebra_San_Miguel_Gin_750ml 125 60
+Fundador_Solera_Brandy_750ml 800 20

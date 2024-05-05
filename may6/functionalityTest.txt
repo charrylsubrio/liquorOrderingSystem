@@ -1,0 +1,22 @@
+VALIDATIONS:
+1. if the user wants to create an account but the numbers of users is already at max (10):
+	a. error message then re-get menu choice. (working)
+2. if the created pass is < 8 characters:
+	a. error message then re-get pass. (working)
+3. if the use inputs outside menu options:
+	a. error message then re-get menu choice. (working)
+
+TO-FIX:
+1. after creating new acc, the program confirms it but it is not yet saved in the text so the new acc wouldnt be able to login directly after the creation, it needs
+to be save first so the program will scan the text file with the new acc already saved. (fixed)
+2. if the user enters a character instead of integer in menu, it will lopp infinitely. (fixed)
+3. the ml of a liquor should have a dedicated section so the users are not required to type the ml to order. 
+4. Liquor list's price & stock are not aligned. (fixed)
+5. password not validating.
+6. if order liquor name is not in the list, the program will loop infinitely.
+
+USERS-CAN:
+1. Create new acc
+2. Login
+3. View liquors with prices & stocks
+4. Order liquors.
