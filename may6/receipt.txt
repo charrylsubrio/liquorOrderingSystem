@@ -1,6 +1,6 @@
 Liquor Ordering System Receipt
 --------------------------------
-Liquor Name: Tanduay_Rhum_Dark_750ml
+Liquor Name: Tanduay_Rhum_Dark
 Quantity: 1
 Total Amount: PHP 125.00
 --------------------------------
