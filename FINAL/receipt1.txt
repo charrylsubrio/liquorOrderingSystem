@@ -1,0 +1,9 @@
+Liquor Ordering System Receipt
+--------------------------------
+Username: charryl1
+Date: Thu May 09 07:52:20 2024
+Liquor Name: Tanduay Rhum Dark 1000
+Quantity: 2
+Total Amount: PHP 480.00
+--------------------------------
+Thank you for your order!
